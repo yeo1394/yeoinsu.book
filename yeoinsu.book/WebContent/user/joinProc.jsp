@@ -15,8 +15,8 @@
 
 	String newUserId = request.getParameter("userId");
 	if (newUserId != null && !newUserId.equals("")) {
-		newId = memberService.getUserId(newUserId);
-		if (newUserId.equals(newId)) {
+		Member dbUser = memberService.getLogin(newUserId);
+		if (newUserId.equals(dbUser.getUserId())) {
 %>
 			<c:redirect url="join.jsp?msgId=0" />
 <%

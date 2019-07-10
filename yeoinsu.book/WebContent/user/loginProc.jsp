@@ -8,22 +8,21 @@
 <%
  	MemberService memberService = new MemberServiceImpl();
 	String nowId = request.getParameter("userId");
- 	String nowPw = request.getParameter("userPw");
- 	String dbId = memberService.getUserId(nowId);
- 	String dbPw = memberService.getUserPw(nowPw);
+	String nowPw = request.getParameter("userPw");
+ 	Member dbUser = memberService.getLogin(nowId);
  	
- 	if (nowId != null && !nowId.equals("") && nowPw != null && !nowPw.equals("")){
- 		if(!nowId.equals(dbId)){
+ 	if (nowId != null && !nowId.equals("")){
+ 		if(!dbUser.getUserId().equals(nowId)){
 %>
-			<c:redirect url="login.jsp?msgId=21" />
+			<c:redirect url="login.jsp?msgId=21"/>
 <%
  		}
- 		if(nowId.equals(dbId) && !nowPw.equals(dbPw)){
+ 		if(dbUser.getUserId().equals(nowId) && !dbUser.getUserPw().equals(nowPw)){
 %>
- 			<c:redirect url="login.jsp?msgId=22" />
+ 			<c:redirect url="login.jsp?msgId=22"/>
 <% 
  		}
- 		if(nowId.equals(dbId) && nowPw.equals(dbPw)){
+ 		if(dbUser.getUserId().equals(nowId) && !dbUser.getUserPw().equals(nowPw)){
 			if(nowId.equals("admin") && nowId.equals("admin")){
 %>
 				<c:redirect url="../book/adminMain.jsp?msgId=23" />

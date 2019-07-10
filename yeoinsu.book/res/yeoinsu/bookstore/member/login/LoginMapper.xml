@@ -7,6 +7,6 @@
 	</insert>
 	
 	<select id="getLoginInfo" resultType="member">
-		select user_id userId,user_pw userPw from users where user_id = #{userId} and user_pw = #{userPw}
+		select * from users where user_id = #{userId}
 	</select>
 </mapper>
