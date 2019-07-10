@@ -6,7 +6,7 @@
 		insert into users values (#{userId}, #{userPw}, #{userName}, #{userAnswer})
 	</insert>
 	
-	<select id="getLoginInfo" resultType="member">
-		select * from users where user_id = #{userId}
+	<select id="getLoginInfo" parameterType="string" resultType="member">
+		select user_id userId, user_pw userPw, user_name userName, user_answer userAnswer from users where user_id = #{userId}
 	</select>
 </mapper>

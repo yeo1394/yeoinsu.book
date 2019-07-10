@@ -22,7 +22,7 @@
  			<c:redirect url="login.jsp?msgId=22"/>
 <% 
  		}
- 		if(dbUser.getUserId().equals(nowId) && !dbUser.getUserPw().equals(nowPw)){
+ 		if(dbUser.getUserId().equals(nowId) && dbUser.getUserPw().equals(nowPw)){
 			if(nowId.equals("admin") && nowId.equals("admin")){
 %>
 				<c:redirect url="../book/adminMain.jsp?msgId=23" />
