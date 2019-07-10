@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yeoinsu.bookstore.member.login.dao.mapper.LoginMapper">
+	<insert id="addUser" parameterType="member">
+		insert into users values (#{userId}, #{userPw}, #{userName}, #{userAnswer})
+	</insert>
+	
+	<select id="getLoginInfo" resultType="member">
+		select user_id userId,user_pw userPw from users where user_id = #{userId} and user_pw = #{userPw}
+	</select>
+</mapper>

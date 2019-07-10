@@ -1,0 +1,43 @@
+.left {
+	float: left;
+}
+.search {
+	width: 60%;
+	margin : auto;
+}
+.right-top {
+	width: 335px;
+	margin-left: 65%;
+	height: 30px;
+}
+div.logobox {
+	width : 100%;
+	border-radius: 10px;
+	text-align: center;
+	height : 90px;
+	border : 1px solid white;
+}
+div#img1{
+	border : 1px solid black;
+	margin-left : 43%;
+	width : 60px;
+	height : 100%;
+	float : left;
+}
+img.left {
+	float: left;
+}
+input.search {
+	width: 60%;
+	margin : auto;
+}
+div#right-top {
+	width: 335px;
+	margin-left: 65%;
+	height: 30px;
+}
+a>h1{
+	margin-left : 45%;
+	margin-top : 30px;
+	position : absolute;
+}

@@ -1,0 +1,19 @@
+div#bookbox{
+	margin-left: 18px;
+	max-width:80%;
+	height:120px;
+	border : 1px solid black;
+}
+
+div.body {
+	display: inline-block;
+	width: 80%;
+	border: 1px solid black;
+}
+
+div.bodyframe {
+	width: 100%;
+	text-align: center;
+	border: 1px solid white;
+	padding: 20px;
+}
