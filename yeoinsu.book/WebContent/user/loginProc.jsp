@@ -12,7 +12,7 @@
  	Member dbUser = memberService.getLogin(nowId);
  	
  	if (nowId != null && !nowId.equals("")){
- 		if(!dbUser.getUserId().equals(nowId)){
+ 		if(dbUser==null){
 %>
 			<c:redirect url="login.jsp?msgId=21"/>
 <%
