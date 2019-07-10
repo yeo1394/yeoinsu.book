@@ -18,8 +18,8 @@ public class MemberDaoImpl implements MemberDao{
 	}
 
 	@Override
-	public Member getLoginInfo(Member member) {
-		return loginMapper.getLoginInfo(member);
+	public Member getLoginInfo(String userId) {
+		return loginMapper.getLoginInfo(userId);
 	}
 
 }

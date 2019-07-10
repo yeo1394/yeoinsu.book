@@ -17,8 +17,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public Member getLogin(Member member) {
-		return memberDao.getLoginInfo(member);
+	public Member getLogin(String userId) {
+		return memberDao.getLoginInfo(userId);
 	}
 	
 }
