@@ -9,4 +9,17 @@
 	<select id="getLoginInfo" parameterType="string" resultType="member">
 		select user_id userId, user_pw userPw, user_name userName, user_answer userAnswer from users where user_id = #{userId}
 	</select>
+	
+	<select id="getFindId" parameterType="member" resultType="member">
+		select user_id userId, user_pw userPw, user_name userName, user_answer userAnswer from users where user_name = #{userName} and user_answer = #{userAnswer}
+	</select>
+	
+	<select id="getFindPwd" parameterType="member" resultType="member">
+		select user_id userId, user_pw userPw, user_name userName, user_answer userAnswer from users where user_name = #{userName} and user_id = #{userId} and user_answer = #{userAnswer}
+	</select>
+	
+	<update id="updatePwd" parameterType="member" >
+		update users set user_pw = #{userPw} where user_id = #{userId}
+	</update>
 </mapper>
+

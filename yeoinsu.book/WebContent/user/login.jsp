@@ -99,8 +99,8 @@ nav.btnList {
 								<div class="col-md-12">
 									<nav class="btnList">
 										<a href="join.jsp">회원가입</a> <span>&#124;</span> <a
-											href="#">아이디찾기</a> <span>&#124;</span> <a
-											href="#">비밀번호찾기</a>
+											href="findUser.jsp">아이디찾기</a> <span>&#124;</span> <a
+											href="findPwd.jsp">비밀번호찾기</a>
 									</nav>
 								</div>
 							</div>

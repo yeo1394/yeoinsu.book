@@ -14,7 +14,18 @@ public class Member {
 		this.userName = userName;
 		this.userAnswer = answer;
 	}
-
+	
+	public Member(String userName, String userAnswer){
+		this.userName = userName;
+		this.userAnswer = userAnswer;
+	}
+	
+	public Member(String userName, String userId, String userAnswer){
+		this.userName=userName;
+		this.userId= userId;
+		this.userAnswer=userAnswer;
+	}
+	
 	public String getUserId() {
 		return userId;
 	}
