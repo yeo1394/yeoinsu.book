@@ -25,5 +25,21 @@ public class MemberServiceImpl implements MemberService{
 	public boolean correctUser(Member member) {
 		return memberDao.updateUser(member)>0;
 	}
+
+	@Override
+	public Member getSearchId(Member member) {
+		return memberDao.getFindId(member);
+	}
+
+	@Override
+	public Member getSearchPwd(Member member) {
+		return memberDao.getFindPwd(member);
+	}
+
+	@Override
+	public boolean correctPwd(Member member) {
+		return memberDao.updatePwd(member)>0;
+	}
+	
 	
 }

@@ -10,7 +10,7 @@
 	String newAnswer = request.getParameter("userAnswer");
 	MemberService memberService = new MemberServiceImpl();
 	
-	if(memberService.correctUser(new Member(newId,newPw,newAnswer))){
+	if(memberService.correctUser(new Member(newId,newPw,null,newAnswer))){
 %>
 		<c:redirect url="userMain.jsp?msgId=30"/>
 <%

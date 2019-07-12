@@ -9,7 +9,9 @@
  	MemberService memberService = new MemberServiceImpl();
 	String nowId = request.getParameter("userId");
 	String nowPw = request.getParameter("userPw");
- 	Member dbUser = memberService.getLogin(nowId);
+ 	System.out.println(nowId);
+ 	System.out.println(nowPw);
+	Member dbUser = memberService.getLogin(nowId);
  	
  	if (nowId != null && !nowId.equals("")){
  		if(dbUser==null){

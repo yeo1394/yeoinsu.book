@@ -27,4 +27,21 @@ public class MemberDaoImpl implements MemberDao{
 		return loginMapper.updateUser(member);
 	}
 
+	@Override
+	public Member getFindId(Member member) {
+		return loginMapper.getFindId(member);
+	}
+
+	@Override
+	public Member getFindPwd(Member member) {
+		return loginMapper.getFindPwd(member);
+	}
+
+	@Override
+	public int updatePwd(Member member) {
+		return loginMapper.updatePwd(member);
+	}
+	
+	
+
 }

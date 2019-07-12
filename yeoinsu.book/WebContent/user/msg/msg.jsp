@@ -31,4 +31,25 @@
 			alert('회원정보가 수정되었습니다.', 'success');
 		</script>
 	</c:when>
+		<c:when test="${param.msgId==100}">
+		<script>
+			alert('아이디가 조회되었습니다.', 'success');
+		</script>
+	</c:when>
+	<c:when test="${param.msgId==101}">
+		<script>
+			alert('일치하는 정보가 없습니다.', 'error');
+		</script>
+	</c:when>
+	<c:when test="${param.msgId==110}">
+		<script>
+			alert('비밀번호가 변경되었습니다.', 'success');
+		</script>
+	</c:when>
+	<c:when test="${param.msgId==111}">
+		<script>
+			alert('입력하신 정보가 일치하지 않습니다.', 'error');
+		</script>
+	</c:when>
+	
 </c:choose>
