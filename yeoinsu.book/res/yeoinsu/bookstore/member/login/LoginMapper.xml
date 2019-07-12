@@ -9,4 +9,8 @@
 	<select id="getLoginInfo" parameterType="string" resultType="member">
 		select user_id userId, user_pw userPw, user_name userName, user_answer userAnswer from users where user_id = #{userId}
 	</select>
+	
+	<update id="updateUser"  parameterType="Member">
+		update users set user_pw=#{userPw}, user_answer=#{userAnswer} where user_id=#{userId}
+	</update>
 </mapper>

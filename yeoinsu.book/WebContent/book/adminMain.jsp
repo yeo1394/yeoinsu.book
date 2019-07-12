@@ -75,8 +75,6 @@ div {
 	<ul class="breadcrumb" class="blacktext">
 		<li><a href="adminMain.jsp" class="text-muted">Home</a></li>
 		<li><a href="../main.jsp" class="text-muted">로그아웃</a></li>
-		<li><a href="#" class="text-muted">회원정보관리</a></li>
-		<li><a href="#" class="text-muted" onClick="alert('회원탈퇴','정말 탈퇴하시겠습니까?','warning')">회원탈퇴</a></li>
 	</ul>
 </div>
 <div class="logobox">

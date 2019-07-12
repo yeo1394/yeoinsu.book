@@ -20,5 +20,10 @@ public class MemberServiceImpl implements MemberService{
 	public Member getLogin(String userId) {
 		return memberDao.getLoginInfo(userId);
 	}
+
+	@Override
+	public boolean correctUser(Member member) {
+		return memberDao.updateUser(member)>0;
+	}
 	
 }

@@ -12,21 +12,15 @@
 	String userAnswer = request.getParameter("userAnswer");
 	MemberService memberService = new MemberServiceImpl();
 	Member dbUser = memberService.getLogin(userId);
-	if (userId != null && !userId.equals("")) {
-		if (dbUser != null) {
+	
+	if (dbUser != null) {
 %>
-				<c:redirect url="join.jsp?msgId=0" />
+		<c:redirect url="join.jsp?msgId=11" />
 <%
-			}
-	} 
-	if (userId != null && !userId.equals("") && userPw != null
-			&& !userPw.equals("") && userName != null
-			&& !userName.equals("") && userAnswer != null
-			&& !userAnswer.equals("")) {
-		memberService.join(new Member(userId, userPw, userName,
-				userAnswer));
+	}else{
+		memberService.join(new Member(userId, userPw, userName,userAnswer));
 %>
-			<c:redirect url="../main.jsp?msgId=11" />
+		<c:redirect url="../main.jsp?msgId=10" />
 <%
 	}
 %>

@@ -5,4 +5,5 @@ import yeoinsu.bookstore.member.login.domain.Member;
 public interface MemberService {
 	boolean join(Member member);
 	Member getLogin(String userId);
+	boolean correctUser(Member member);
 }

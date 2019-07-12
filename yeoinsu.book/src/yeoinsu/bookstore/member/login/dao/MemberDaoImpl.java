@@ -22,4 +22,9 @@ public class MemberDaoImpl implements MemberDao{
 		return loginMapper.getLoginInfo(userId);
 	}
 
+	@Override
+	public int updateUser(Member member) {
+		return loginMapper.updateUser(member);
+	}
+
 }

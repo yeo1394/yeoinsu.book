@@ -13,6 +13,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="res/js/alert.js"></script>
+<script>
+<%
+	session.setAttribute("nowId", null);
+	session.setAttribute("nowName", null);
+%>
+</script>
 <style>
 @import "res/css/header.css";
 @import "res/css/footer.css";

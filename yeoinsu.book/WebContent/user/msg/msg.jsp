@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:choose>
-	<c:when test="${param.msgId==11}">
+	<c:when test="${param.msgId==10}">
 		<script>
 			alert('회원가입이 완료되었습니다.', 'success');
 		</script>
 	</c:when>
-	<c:when test="${param.msgId==0}">
+	<c:when test="${param.msgId==11}">
 		<script>
 			alert('중복된 아이디입니다.', 'error');
 		</script>
@@ -21,9 +21,14 @@
 			alert('비밀번호가 틀립니다.', 'error');
 		</script>
 	</c:when>
-	<c:when test="${param.msgId==23}">
+	<c:when test="${param.msgId==20}">
 		<script>
 			alert('관리자님 환영합니다.', 'success');
+		</script>
+	</c:when>
+	<c:when test="${param.msgId==30}">
+		<script>
+			alert('회원정보가 수정되었습니다.', 'success');
 		</script>
 	</c:when>
 </c:choose>

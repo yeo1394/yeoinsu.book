@@ -66,15 +66,13 @@ h1 {
 	background: #428bca;
 }
 </style>
-<script>
-	
 </script>
 </head>
 	<div id="right-top">
 		<ul class="breadcrumb" class="blacktext">
 			<li><a href="userMain.jsp" class="text-muted">Home</a></li>
 			<li><a href="../main.jsp" class="text-muted">로그아웃</a></li>
-			<li><a href="#" class="text-muted">회원정보관리</a></li>
+			<li><a href="update.jsp" class="text-muted">회원정보관리</a></li>
 			<li><a href="#" class="text-muted" onClick="alert('회원탈퇴','정말 탈퇴하시겠습니까?','warning')">회원탈퇴</a></li>
 		</ul>
 	</div>
@@ -260,3 +258,4 @@ h1 {
 </div>
 </footer>
 </html>
+<%@ include file='msg/msg.jsp'%>
