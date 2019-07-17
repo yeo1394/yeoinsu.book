@@ -41,7 +41,10 @@ public class MemberDaoImpl implements MemberDao{
 	public int updatePwd(Member member) {
 		return loginMapper.updatePwd(member);
 	}
-	
-	
+
+	@Override
+	public int deleteUser(String userId) {
+		return loginMapper.deleteUser(userId);
+	}
 
 }

@@ -25,5 +25,9 @@
 	<update id="updatePwd" parameterType="member" >
 		update users set user_pw = #{userPw} where user_id = #{userId}
 	</update>
+	
+	<delete id="deleteUser" parameterType="string">
+		delete from users where user_id = #{userId}
+	</delete>
 </mapper>
 

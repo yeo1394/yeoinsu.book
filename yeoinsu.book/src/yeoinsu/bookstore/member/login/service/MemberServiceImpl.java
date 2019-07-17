@@ -40,6 +40,9 @@ public class MemberServiceImpl implements MemberService{
 	public boolean correctPwd(Member member) {
 		return memberDao.updatePwd(member)>0;
 	}
-	
-	
+
+	@Override
+	public boolean secedeUser(String userId) {
+		return memberDao.deleteUser(userId)>0;
+	}
 }

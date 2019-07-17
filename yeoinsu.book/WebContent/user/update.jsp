@@ -30,6 +30,15 @@
 
 @import "../res/css/bodybasic.css";
 
+hr#p{
+	border: inset 5px rgb(234,206,231);
+}
+hr#g{
+	border: inset 2px rgb(228,228,228);
+	margin-left: 0.2%;
+	width: 91%;
+}
+
 div.ans{
 	margin-left: 0.5%;
 }
@@ -58,14 +67,12 @@ div {
 }
 
 button#update {
-	margin-top: 4%;
-	margin-left: 36%;
-	margin-right: 2%;
-	float: left;
+	margin-top: 2%;
 }
 
-a#center {
-	margin-top: 4%;
+#center {
+	margin-top: 2%;
+	margin-left: 39%;
 }
 
 input#pwd1{
@@ -106,23 +113,22 @@ div.bodyframe {
 		<li><a href="userMain.jsp" class="text-muted">Home</a></li>
 		<li><a href="../main.jsp" class="text-muted">로그아웃</a></li>
 		<li><a href="update.jsp" class="text-muted">회원정보관리</a></li>
-		<li><a href="#" class="text-muted"
-			onClick="alert('회원탈퇴','정말 탈퇴하시겠습니까?','warning')">회원탈퇴</a></li>
+		<li><a href="#" class="text-muted" onClick="delUserAlert()">회원탈퇴</a></li>
 	</ul>
 </div>
 <div class="logobox">
-	<div id="img1"></div>
-	<a type="button" style="color: purple" href="userMain.jsp"><h1>Y
-			BookStore</h1></a>
-</div>
+		<div id="img1"><img alt="로고" src="../res/img/yLogo.jpg" style="width:100%; height:auto;"></div>
+		<a type="button" style="color:purple" href ="userMain.jsp"><h1>BookStore</h1></a>
+	</div>
 <body>
+	<hr id="p">
 	<div class="bodyframe">
 		<div class="container" id="body">
 			<div class="title">
 				<h1>회원정보관리</h1>
 				<h4>|회원정보수정</h4>
 			</div>
-			<hr>
+			<hr id="g">
 			<p algin="left">회원정보수정 후 수정버튼을 눌러주세요.</p>
 			<form>
 				<div class="all">
@@ -154,31 +160,25 @@ div.bodyframe {
 						답변 &nbsp;<input type="text" name="userAnswer" class="form-contorl"
 							id="answer" placeholder="새로운 답변 입력" required />
 					</div>
+					<a href="userMain.jsp" class="btn btn-default" id="center">메인으로</a>
 					<button formaction="updateProc.jsp" class="btn btn-default"
 						type="submit" id="update">수정</button>
 				</div>
 			</form>
-					<a type="button" href="userMain.jsp" class="btn btn-default" id="center">메인으로</a>
 		</div>
 	</div>
 </body>
 <footer>
-	<div class="bottombox">
-		<div id="footimg"></div>
-		<div id="footerlogo">
-			<p>
-				<br>
-			<p>
-			<p>
-				<strong>Y BookStore</strong>
-			</p>
-			<p>
-				<br>
-			<p>
-			<p>사업자등록번호 : 113-123-334578 | 대표전화 : 070-8245-7450 l | 문의 Mail :
-				YBookStore1145@gmail.com</p>
-			<p>개인정보 관리책임자 및 대표 : 여인수 | 서울 영등포구 영중로8길 3946번지 102호</p>
-		</div>
+	<hr id="p">
+	<div>
+	<div id="footimg"></div>
+	<div id="footerlogo">
+	<p><br><p>
+	<p><strong>Y BookStore</strong></p>
+	<p><br><p>
+	<p>사업자등록번호 : 113-123-334578 | 대표전화 : 070-8245-7450 l | 문의 Mail : YBookStore1145@gmail.com</p>
+	<p>개인정보 관리책임자 및 대표 : 여인수 | 서울 영등포구 영중로8길 3946번지 102호</p>
 	</div>
+</div>
 </footer>
 </html>

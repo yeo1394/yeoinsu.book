@@ -71,6 +71,11 @@ input {
 p#left {
 	margin-left: -72%;
 }
+hr#g{
+	border: inset 2px rgb(228,228,228);
+	margin-left: 0.2%;
+	width: 81%;
+}
 </style>
 </head>
 <div class="right-top">
@@ -81,10 +86,10 @@ p#left {
 	</ul>
 </div>
 <div class="logobox">
-	<div id="img1"></div>
-	<a type="button" style="color: purple" href="../main.jsp"><h1>Y
-			BookStore</h1></a>
-</div>
+		<div id="img1"><img alt="로고" src="../res/img/yLogo.jpg" style="width:100%; height:auto;"></div>
+		<a type="button" style="color:purple" href ="main.jsp"><h1>BookStore</h1></a>
+	</div>
+	<hr id="p">
 <body>
 	<div class="allbody">
 		<div class="bodyframe">
@@ -93,7 +98,7 @@ p#left {
 					<h1>구매 회원가입</h1>
 					<h4>|정보입력</h4>
 				</div>
-				<hr>
+				<hr id="g">
 				<p id="left">회원 정보를 모두 입력해야 가입이 가능합니다.</p>
 				<form name="userForm">
 					<div class="addUser">
@@ -120,31 +125,25 @@ p#left {
 						<input type="text" name="userAnswer" class="form-contorl"
 							id="answer" placeholder="답변 입력" maxlength="25" required/>
 					</div>
-					<a href="../main.jsp" class="btn button-default" id="center">메인으로</a>
-					<button formaction="joinProc.jsp" class="btn button-default" type="submit" id="join">확인</button>
+					<a href="../main.jsp" class="btn btn-default" id="center">메인으로</a>
+					<button formaction="joinProc.jsp" class="btn btn-default" type="submit" id="join">확인</button>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
 <footer>
-	<div class="bottombox">
-		<div id="footimg"></div>
-		<div id="footerlogo">
-			<p>
-				<br>
-			<p>
-			<p>
-				<strong>Y BookStore</strong>
-			</p>
-			<p>
-				<br>
-			<p>
-			<p>사업자등록번호 : 113-123-334578 | 대표전화 : 070-8245-7450 l | 문의 Mail :
-				YBookStore1145@gmail.com</p>
-			<p>개인정보 관리책임자 및 대표 : 여인수 | 서울 영등포구 영중로8길 3946번지 102호</p>
-		</div>
+<div>
+<hr id="p">
+	<div id="footimg"></div>
+	<div id="footerlogo">
+	<p><br><p>
+	<p><strong>Y BookStore</strong></p>
+	<p><br><p>
+	<p>사업자등록번호 : 113-123-334578 | 대표전화 : 070-8245-7450 l | 문의 Mail : YBookStore1145@gmail.com</p>
+	<p>개인정보 관리책임자 및 대표 : 여인수 | 서울 영등포구 영중로8길 3946번지 102호</p>
 	</div>
+</div>
 </footer>
 </html>
 <%@ include file='msg/msg.jsp'%>

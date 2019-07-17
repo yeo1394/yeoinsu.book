@@ -9,4 +9,5 @@ public interface MemberDao {
 	Member getFindId(Member member);
 	Member getFindPwd(Member member);
 	int updatePwd(Member member);
+	int deleteUser(String userId);
 }

@@ -47,8 +47,10 @@ input {
 }
 
 #logBtn {
-	width: 100%;
-	height: 60px;
+	width: 70%;
+	height: 70px;
+	margin-left:-50%;
+	margin-top: -3%;
 }
 
 div#logBox {
@@ -61,6 +63,18 @@ div#logBox {
 nav.btnList {
 	margin-left: -30%;
 }
+a#bl{
+	color : black;
+}
+
+hr#p{
+	border: inset 5px rgb(234,206,231);
+}
+hr#g{
+	border: inset 2px rgb(228,228,228);
+	margin-left: 0.2%;
+	width: 125%;
+}
 </style>
 <div class="right-top">
 	<ul class="breadcrumb" class="blacktext">
@@ -70,10 +84,10 @@ nav.btnList {
 	</ul>
 </div>
 <div class="logobox">
-	<div id="img1"></div>
-	<a type="button" style="color: purple" href="../main.jsp"><h1>Y
-			BookStore</h1></a>
-</div>
+		<div id="img1"><img alt="로고" src="../res/img/yLogo.jpg" style="width:100%; height:auto;"></div>
+		<a type="button" style="color:purple" href ="main.jsp"><h1>BookStore</h1></a>
+	</div>
+	<hr id="p">
 <body>
 	<div class="all">
 		<div id="bodyframe">
@@ -83,7 +97,7 @@ nav.btnList {
 						<div class="row">
 							<div class="col-md-8">
 								<h2>로그인</h2>
-								<hr>
+								<hr id="g">
 								<input type="text" name="userId" class="form-control"
 									placeholder="아이디 입력" required maxlength="20"> <input
 									type="password" name="userPw" class="form-control"
@@ -98,9 +112,9 @@ nav.btnList {
 							<div class="row">
 								<div class="col-md-12">
 									<nav class="btnList">
-										<a href="join.jsp">회원가입</a> <span>&#124;</span> <a
-											href="findUser.jsp">아이디찾기</a> <span>&#124;</span> <a
-											href="findPwd.jsp">비밀번호찾기</a>
+										<a href="join.jsp" id="bl">회원가입</a> <span>&#124;</span> <a
+											href="findUser.jsp" id="bl">아이디찾기</a> <span>&#124;</span> <a
+											href="findPwd.jsp" id="bl">비밀번호찾기</a>
 									</nav>
 								</div>
 							</div>
@@ -111,25 +125,18 @@ nav.btnList {
 		</div>
 	</div>
 </body>
-<hr>
 <footer>
-	<div class="bottombox">
-		<div id="footimg"></div>
-		<div id="footerlogo">
-			<p>
-				<br>
-			<p>
-			<p>
-				<strong>Y BookStore</strong>
-			</p>
-			<p>
-				<br>
-			<p>
-			<p>사업자등록번호 : 113-123-334578 | 대표전화 : 070-8245-7450 l | 문의 Mail :
-				YBookStore1145@gmail.com</p>
-			<p>개인정보 관리책임자 및 대표 : 여인수 | 서울 영등포구 영중로8길 3946번지 102호</p>
-		</div>
+<div>
+<hr id="p">
+	<div id="footimg"></div>
+	<div id="footerlogo">
+	<p><br><p>
+	<p><strong>Y BookStore</strong></p>
+	<p><br><p>
+	<p>사업자등록번호 : 113-123-334578 | 대표전화 : 070-8245-7450 l | 문의 Mail : YBookStore1145@gmail.com</p>
+	<p>개인정보 관리책임자 및 대표 : 여인수 | 서울 영등포구 영중로8길 3946번지 102호</p>
 	</div>
+</div>
 </footer>
 </html>
 <%@ include file='msg/msg.jsp'%>

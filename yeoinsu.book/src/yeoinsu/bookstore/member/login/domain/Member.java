@@ -15,12 +15,6 @@ public class Member {
 		this.userAnswer = answer;
 	}
 	
-	public Member(String userId, String userPw, String answer){
-		this.userId = userId;
-		this.userPw = userPw;
-		this.userAnswer = answer;
-	}
-	
 	public Member(String userName, String userAnswer){
 		this.userName = userName;
 		this.userAnswer = userAnswer;

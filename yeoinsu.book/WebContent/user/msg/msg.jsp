@@ -31,6 +31,21 @@
 			alert('회원정보가 수정되었습니다.', 'success');
 		</script>
 	</c:when>
+	<c:when test="${param.msgId==40}">
+		<script>
+			alert('구매 성공.', 'success');
+		</script>
+	</c:when>
+	<c:when test="${param.msgId==41}">
+		<script>
+			alert('책을 선택해주십시오.', 'error');
+		</script>
+	</c:when>
+	<c:when test="${param.msgId==50}">
+		<script>
+			alert('회원 탈퇴가 완료되었습니다.', 'success');
+		</script>
+	</c:when>
 		<c:when test="${param.msgId==100}">
 		<script>
 			alert('아이디가 조회되었습니다.', 'success');

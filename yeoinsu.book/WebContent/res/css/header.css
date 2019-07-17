@@ -1,9 +1,21 @@
-.left {
-	float: left;
+hr#p{
+	border: inset 5px rgb(234,206,231);
 }
-.search {
+hr#g{
+	border: inset 2px rgb(228,228,228);
+	margin-left: 0.2%;
+	width: 91%;
+}
+input.search {
 	width: 60%;
 	margin : auto;
+	border: 4px inset rgb(234,206,231); 
+}
+ul.blacktext{
+	background-color : rgb(228,228,228);	
+}
+.left {
+	float: left;
 }
 .right-top {
 	width: 335px;
@@ -18,18 +30,14 @@ div.logobox {
 	border : 1px solid white;
 }
 div#img1{
-	border : 1px solid black;
-	margin-left : 43%;
+	margin-top: 1%;
+	margin-left : 41%;
 	width : 60px;
 	height : 100%;
 	float : left;
 }
 img.left {
 	float: left;
-}
-input.search {
-	width: 60%;
-	margin : auto;
 }
 div#right-top {
 	width: 335px;

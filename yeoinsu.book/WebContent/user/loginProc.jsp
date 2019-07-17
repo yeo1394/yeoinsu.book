@@ -27,7 +27,7 @@
  		if(dbUser.getUserId().equals(nowId) && dbUser.getUserPw().equals(nowPw)){
 			if(nowId.equals("admin") && nowId.equals("admin")){
 %>
-				<c:redirect url="../book/adminMain.jsp?msgId=20" />
+				<c:redirect url="../book/adminMain.jsp?msgId=0" />
 <% 
  			}else{
  				session.setAttribute("nowId", dbUser.getUserId());

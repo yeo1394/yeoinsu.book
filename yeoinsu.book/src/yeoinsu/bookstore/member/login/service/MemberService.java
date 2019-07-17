@@ -9,4 +9,5 @@ public interface MemberService {
 	Member getSearchId(Member member);
 	Member getSearchPwd(Member member);
 	boolean correctPwd(Member member);
+	boolean secedeUser(String userId);
 }

@@ -1,3 +1,7 @@
+<%@page import="yeoinsu.bookstore.member.login.domain.Book"%>
+<%@page import="java.util.List"%>
+<%@page import="yeoinsu.bookstore.member.login.service.BookService"%>
+<%@page import="yeoinsu.bookstore.member.login.service.BookServiceImpl"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
@@ -17,6 +21,11 @@
 <%
 	session.setAttribute("nowId", null);
 	session.setAttribute("nowName", null);
+	BookService bookService = new BookServiceImpl();
+	pageContext.setAttribute("Books", bookService.getBooks());
+	List<Book> books = bookService.getBooks();
+	int count = (int)books.size()/8;
+
 %>
 </script>
 <style>
@@ -44,8 +53,8 @@ h1 {
 	left: -12px;
 	height: 40px;
 	width: 40px;
-	background: none repeat scroll 0 0 #222222;
-	border: 4px solid #FFFFFF;
+	background: none repeat scroll 0 0 purple;
+	border: 4px solid purple;
 	border-radius: 23px 23px 23px 23px;
 	margin-top: 20%;
 }
@@ -62,201 +71,136 @@ h1 {
 }
 
 .carousel-indicators li {
-	background: #cecece;
+	background: rgb(228,228,228);
 }
 
 .carousel-indicators .active {
-	background: #428bca;
+	background: purple;
 }
+img#purple{
+	color:purple;
+}
+input.search {
+	width: 60%;
+	margin : auto;
+}
+ul#blacktext{
+	background-color : rgb(228,202,249);	
+}
+
 </style>
 </head>
 	<div class="right-top">
-		<ul class="breadcrumb" class="blacktext">
+		<ul class="breadcrumb" id="blacktext">
 			<li><a href ="main.jsp" class="text-muted">Home</a></li>
 			<li><a href ="user/login.jsp" class="text-muted">로그인</a></li>
 			<li><a href ="user/join.jsp" class="text-muted">회원가입</a></li>
 		</ul>
 	</div>
 	<div class="logobox">
-		<div id="img1"></div>
-		<a type="button" style="color:purple" href ="main.jsp"><h1>Y BookStore</h1></a>
+		<div id="img1"><img alt="로고" src="res/img/yLogo.jpg" style="width:100%; height:auto;"></div>
+		<a type="button" style="color:purple" href ="main.jsp"><h1>BookStore</h1></a>
 	</div>
 	<br>
-	<div>
-		<input text="text" class="search">
-		<a href="#" class='btn btn-default'>검색</a>
-	</div>
-	<br>
-<body>
-<article>
-	<section>
-		<div class="container">
-			<div class="row">
-			<div id="Carousel" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#Carousel" data-slide-to="0" class="active"></li>
-				<li data-target="#Carousel" data-slide-to="1"></li>
-				<li data-target="#Carousel" data-slide-to="2"></li>
-			</ol>
-			
-			<div class="carousel-inner" style="height: 90%;">
-			
-				<div class="item active">
-					<div>
-						<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
+<form name='bookForm'>
+<div>
+	<input type="text" class="search" name="search" placeholder="로그인 후 이용가능합니다." readonly> 
+	<button class='btn btn-default' type='submit' formaction="#">검색</button>
+</div>
+	<hr id="p">
+<br>
+	<div class="all">
+		<article>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div id="Carousel" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#Carousel" data-slide-to="0" class="active"></li>							
+							<%for(int i = 1 ; i<=count; i++){
+							%>
+								<li data-target="#Carousel" data-slide-to="<%=i%>"></li>
+							<%
+							}
+							%>
+							</ol>
+
+							<div class="carousel-inner" style="height: 90%;">
+
+								<div class="item active">
+									<div>
+										<c:forEach var="post" items="${Books}" end="7">
+											<div class="col-md-3" id="book">
+												<div id="img">
+													<div id="bookbox">
 									
+													</div>
+												</div>
+												<div id="book" name="bookinfo">
+												<p>${post.bookName}<p>
+												<p>${post.bookPrice}원</p>
+												<p>${post.bookEa} EA</p>
+												</div>
+											</div>
+										</c:forEach>
+										
 									</div>
 								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
-							</div>
-							<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
+							<%for(int i=0 ; i<count; i++){
+								int j = 8*(i+1);%>
+								<div class="item">
+									<div class="row">										
+										<c:forEach var="post" items="${Books}" begin="<%=j%>" end="<%=j+7%>">
+											<div class="col-md-3" id="book">
+												<div id="img">
+													<div id="bookbox">
 									
+													</div>
+												</div>
+												<div id="book" name="bookinfo">
+												<p>${post.bookName}<p>
+												<p>${post.bookPrice}원</p>
+												<p>${post.bookEa} EA</p>
+												</div>
+											</div>
+										</c:forEach>
 									</div>
 								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
+						<%
+							}
+						%>
 							</div>
-							<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
-									
-									</div>
-								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
-							</div>
-							<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
-									
-									</div>
-								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
-							</div>
-							<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
-									
-									</div>
-								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
-							</div>
-							<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
-									
-									</div>
-								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
-							</div>
-							<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
-									
-									</div>
-								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
-							</div>
-							<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
-									
-									</div>
-								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
-							</div>
+							<!-- 좌우 옮기는 화살표 -->
+							<a data-slide="prev" href="#Carousel"
+								class="left carousel-control">‹</a> <a data-slide="next"
+								href="#Carousel" class="right carousel-control">›</a>
 						</div>
 					</div>
-					
-					<div class="item">
-						<div class="row">
-							<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
-									
-									</div>
-								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
-							</div>
-						</div>
-					</div>
-					
-					<div class="item">
-						<div class="row">
-							<div class="col-md-3">
-								<div id="img">
-									<div id="bookbox">
-									
-									</div>
-								</div>
-								<input type="radio" name="check"/><br>
-								<P>{책명}</p>
-								<p>{가격}원</p>
-								<p>{재고}</p>
-								<a href="buy/01.html" class='btn btn-default'>구매</a>
-							</div>
-						</div>
-					</div>
-					
 				</div>
-	<!-- 좌우 옮기는 화살표 -->
-	<a data-slide="prev" href="#Carousel"class="left carousel-control">‹</a>
-	<a data-slide="next" href="#Carousel"class="right carousel-control">›</a>			
-			</div>
-			</div>
-		</div>
-	</section>
-</article>
+			</section>
+		</article>
+	</div>
+</form>
 </body>
 <footer>
-<div class="bottombox">
-	<div id="footimg"></div>
-	<div id="footerlogo">
-	<p><br><p>
-	<p><strong>Y BookStore</strong></p>
-	<p><br><p>
-	<p>사업자등록번호 : 113-123-334578 | 대표전화 : 070-8245-7450 l | 문의 Mail : YBookStore1145@gmail.com</p>
-	<p>개인정보 관리책임자 및 대표 : 여인수 | 서울 영등포구 영중로8길 3946번지 102호</p>
+<hr id="p">
+	<div class="bottombox">
+		<div id="footimg"></div>
+		<div id="footerlogo">
+			<p>
+				<br>
+			<p>
+			<p>
+				<strong>Y BookStore</strong>
+			</p>
+			<p>
+				<br>
+			<p>
+			<p>사업자등록번호 : 113-123-334578 | 대표전화 : 070-8245-7450 l | 문의 Mail :
+				YBookStore1145@gmail.com</p>
+			<p>개인정보 관리책임자 및 대표 : 여인수 | 서울 영등포구 영중로8길 3946번지 102호</p>
+		</div>
 	</div>
-</div>
 </footer>
 </html>
 <%@ include file='user/msg/msg.jsp'%>

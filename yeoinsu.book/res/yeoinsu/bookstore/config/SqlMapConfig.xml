@@ -6,6 +6,7 @@
 	
 	<typeAliases>
 		<typeAlias alias = "member" type ="yeoinsu.bookstore.member.login.domain.Member"/>
+		<typeAlias alias = "book" type ="yeoinsu.bookstore.member.login.domain.Book"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -22,5 +23,6 @@
 	
 	<mappers>
 		<mapper resource="yeoinsu/bookstore/member/login/LoginMapper.xml"/>
+		<mapper resource="yeoinsu/bookstore/member/login/BookMapper.xml"/>
 	</mappers>
 </configuration>

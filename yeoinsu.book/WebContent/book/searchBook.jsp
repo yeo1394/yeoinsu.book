@@ -1,14 +1,15 @@
 <%@page import="yeoinsu.bookstore.member.login.domain.Book"%>
 <%@page import="java.util.List"%>
-<%@page import="yeoinsu.bookstore.member.login.service.BookService"%>
 <%@page import="yeoinsu.bookstore.member.login.service.BookServiceImpl"%>
+<%@page import="yeoinsu.bookstore.member.login.service.BookService"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	BookService bookService = new BookServiceImpl();
-	pageContext.setAttribute("Books", bookService.getBooks());
-	List<Book> books = bookService.getBooks();
-	int count = (int)books.size()/8;
+	String Searchname= request.getParameter("search");
+	List<Book> books = bookService.getBook(Searchname);
+	pageContext.setAttribute("books", books);
+
 %>
 <!doctype html>
 <html lang='ko'>
@@ -32,16 +33,22 @@
 @import "../res/css/header.css";
 @import "../res/css/footer.css";
 @import "../res/css/bodybasic.css";
-div.all {
+div.all{
 	margin: 5%;
 }
+
 div {
 	border: 1px solid white;
 	text-align: center;
 }
+
 #list {
 	width: 80%;
 	left: 10%;
+}
+
+h1 {
+	color: puple;
 }
 
 .carousel {
@@ -77,25 +84,15 @@ div {
 .carousel-indicators .active {
 	background: #428bca;
 }
-</style>
-<script>
-var alert = function(msg,type){
-	swal({
-		title : '',
-		text : msg,
-		type : type,
-		customClass :'sweet-size',
-		timer:1000,
-		showConfirmButton: false
-	});
-}
 
-var isBookNo = function(){
-	var result = false;
-	if($('#book :radio:checked').length) result = true;
-	return result;
+.title {
+	text-align: left;
+	margin-left: 10%;
 }
-</script>
+h2,h5{
+	display: inline;
+}
+</style>
 </head>
 <div id="right-top">
 	<ul class="breadcrumb" class="blacktext">
@@ -112,7 +109,7 @@ var isBookNo = function(){
 <body>
 <form name='bookForm'>
 <div>
-	<input type="text" class="search" name="search"> 
+	<input type="text" class="search" name=""> 
 	<button class='btn btn-default' type='submit' formaction="searchBook.jsp">검색</button>
 </div>
 <br>
@@ -127,36 +124,33 @@ var isBookNo = function(){
 		<button class='btn btn-default' type="submit" formaction="delBookProc.jsp" id="delete">책 삭제</button>
 	</div>
 </div>
-	<div class="all">
+
+<div class="all">
 		<article>
 			<section>
 				<div class="container">
 					<div class="row">
 						<div id="Carousel" class="carousel slide" data-ride="carousel">
 							<ol class="carousel-indicators">
-								<li data-target="#Carousel" data-slide-to="0" class="active"></li>							
-							<%for(int i = 1 ; i<=count; i++){
-							%>
-								<li data-target="#Carousel" data-slide-to="<%=i%>"></li>
-							<%
-							}
-							%>
+								<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+								<li data-target="#Carousel" data-slide-to="1"></li>
+								<li data-target="#Carousel" data-slide-to="2"></li>
 							</ol>
 
 							<div class="carousel-inner" style="height: 90%;">
 
 								<div class="item active">
 									<div>
-										<c:forEach var="post" items="${Books}" end="7">
+										<c:forEach var="post" items="${books}">
 											<div class="col-md-3" id="book">
 												<div id="img">
 													<div id="bookbox">
 									
 													</div>
 												</div>
-												<div id="book" name="bookinfo">
+												<div id="book">
 												<input type="radio" name="check" value="${post.bookNo}"/><br>
-												<p>${post.bookName}<p>
+												<P>${post.bookName}</p>
 												<p>${post.bookPrice}원</p>
 												<p>${post.bookEa} EA</p>
 												<button id="buy" type="submit" formaction="../buy/adminBuyProc.jsp" class='btn btn-default'>구매</button>
@@ -166,42 +160,17 @@ var isBookNo = function(){
 										
 									</div>
 								</div>
-							<%for(int i=0 ; i<count; i++){
-								int j = 8*(i+1);%>
-								<div class="item">
-									<div class="row">										
-										<c:forEach var="post" items="${Books}" begin="<%=j%>" end="<%=j+7%>">
-											<div class="col-md-3" id="book">
-												<div id="img">
-													<div id="bookbox">
-									
-													</div>
-												</div>
-												<div id="book" name="bookinfo">
-												<input type="radio" name="check" value="${post.bookNo}"/><br>
-												<p>${post.bookName}<p>
-												<p>${post.bookPrice}원</p>
-												<p>${post.bookEa} EA</p>
-												<button id="buy" type="submit" formaction="../buy/adminBuyProc.jsp" class='btn btn-default'>구매</button>
-												</div>
-											</div>
-										</c:forEach>
-									</div>
-								</div>
-						<%
-							}
-						%>
 							</div>
-							<!-- 좌우 옮기는 화살표 -->
-							<a data-slide="prev" href="#Carousel"
-								class="left carousel-control">‹</a> <a data-slide="next"
-								href="#Carousel" class="right carousel-control">›</a>
-						</div>
+						<!-- 좌우 옮기는 화살표 -->
+						<a data-slide="prev" href="#Carousel"
+							class="left carousel-control">‹</a> <a data-slide="next"
+							href="#Carousel" class="right carousel-control">›</a>
 					</div>
 				</div>
-			</section>
-		</article>
-	</div>
+			</div>
+		</section>
+	</article>
+</div>
 </form>
 </body>
 <footer>
@@ -224,4 +193,3 @@ var isBookNo = function(){
 	</div>
 </footer>
 </html>
-<%@ include file='msg/msg.jsp'%>
